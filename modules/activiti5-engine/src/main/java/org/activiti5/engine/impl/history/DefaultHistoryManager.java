@@ -423,7 +423,7 @@ public void recordTaskCreated(TaskEntity task, ExecutionEntity execution) {
       getDbSqlSession().insert(historicTaskInstance);
     }
   }
-  
+
   /* (non-Javadoc)
  * @see org.activiti5.engine.impl.history.HistoryManagerInterface#recordTaskAssignment(org.activiti5.engine.impl.persistence.entity.TaskEntity)
  */
@@ -432,6 +432,10 @@ public void recordTaskAssignment(TaskEntity task) {
     ExecutionEntity executionEntity = task.getExecution();
     if(isHistoryLevelAtLeast(HistoryLevel.ACTIVITY)) {
       if (executionEntity != null) {
+        /**
+         * 更新任务节点处理人对应表中ASSIGNEE_
+         * entityToTableNameMap.put(HistoricActivityInstanceEntity.class, "ACT_HI_ACTINST");
+         */
         HistoricActivityInstanceEntity historicActivityInstance = findActivityInstance(executionEntity);
         if(historicActivityInstance != null) {
           historicActivityInstance.setAssignee(task.getAssignee());
