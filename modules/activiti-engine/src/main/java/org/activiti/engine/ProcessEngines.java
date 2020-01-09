@@ -69,8 +69,8 @@ public abstract class ProcessEngines {
   protected static Map<String, ProcessEngineInfo> processEngineInfosByName = new HashMap<String, ProcessEngineInfo>();
   protected static Map<String, ProcessEngineInfo> processEngineInfosByResourceUrl = new HashMap<String, ProcessEngineInfo>();
   protected static List<ProcessEngineInfo> processEngineInfos = new ArrayList<ProcessEngineInfo>();
-  
-  /** Initializes all process engines that can be found on the classpath for 
+
+  /** Initializes all process engines that can be found on the classpath for | 初始化流程引擎
    * resources <code>activiti.cfg.xml</code> (plain Activiti style configuration)
    * and for resources <code>activiti-context.xml</code> (Spring style configuration). */
   public synchronized static void init() {
